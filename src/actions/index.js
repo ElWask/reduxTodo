@@ -1,4 +1,4 @@
-let nextTodoId = 3
+let nextTodoId = 4
 
 export const addTodo = text => ({
     type: 'ADD_TODO',

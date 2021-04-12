@@ -437,7 +437,7 @@ Dans le paradigme Redux, la gestion d'état est simplifiée en puisque tous les 
 
 ## Références
 
-Le code de ce tutoriel: <https://github.com/jckbrkr/redux-tutorial>
+Merci à Jack d'avoir commencé ce tutoriel: <https://github.com/jckbrkr/redux-tutorial>
 
 La documentation de Redux: https://redux.js.org/
 
