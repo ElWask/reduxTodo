@@ -1,4 +1,4 @@
-# Tutoriel Redux, Jack Barker
+# Tutoriel Redux, Charly Schmid, inspiré du projet de Jack Barker
 
 ![React](<https://i.imgur.com/As15QGv.jpg>)
 
