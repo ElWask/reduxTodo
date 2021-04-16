@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
 const AddTodoContainer = ({ dispatch }) => {
-    const input = useRef(null)
     const [text, setText] = useState("Useless Text");
     
     const addingTodo = () => {
@@ -20,7 +19,6 @@ const AddTodoContainer = ({ dispatch }) => {
             style={styles.content}
         >
             <TextInput
-                ref={input}
                 style={styles.input}
                 onChangeText={setText}
                 value={text}
