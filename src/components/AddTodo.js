@@ -3,7 +3,7 @@ import { View, TextInput, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-const AddTodoContainer = ({ dispatch }) => {
+const AddTodo = ({ dispatch }) => {
     const [text, setText] = useState("Useless Text");
     
     const addingTodo = () => {
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default connect()(AddTodoContainer)
+export default connect()(AddTodo)
