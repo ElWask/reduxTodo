@@ -1,30 +1,10 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { FlatList, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
-import { VisibilityFilters } from '../actions'
+import Filters from '../components/Filters'
 import CheckBox from '@react-native-community/checkbox';
 
-const getVisibleTodos = (todos, filter) => {
-    switch (filter) {
-        case VisibilityFilters.SHOW_ALL:
-            return todos
-        case VisibilityFilters.SHOW_COMPLETED:
-            return todos.filter(t => t.completed)
-        case VisibilityFilters.SHOW_ACTIVE:
-            return todos.filter(t => !t.completed)
-        default:
-            throw new Error('Unknown filter: ' + filter)
-    }
-}
-
-const mapStateToProps = state => ({
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
-})
-
-const mapDispatchToProps = dispatch => ({
-    toggleTodo: id => dispatch(toggleTodo(id))
-})
+const mapStateToProps = ({todos}) => ({todos: todos})
 
 const Item = ({ onClick, completed, text }) => (
     <View 
@@ -38,15 +18,22 @@ const Item = ({ onClick, completed, text }) => (
     </View>
 )
 
-const TodoList = ({ todos, toggleTodo }) => (
-    <FlatList
-        style={styles.list}
-        data={todos}
-        renderItem={({item}) => <Item {...item} onClick={() => toggleTodo(item.id)} />}
-        keyExtractor={(item) => item.id.toString()}
-    />
-)
+const TodoList = ({ todos, toggleTodo }) => {
+    const [list, setList] = useState([])
+    useEffect(() => {
+        setList(todos)
+    }, [todos])
 
+    return (<>
+        <Filters {...{todos,setList}} />
+        <FlatList
+            style={styles.list}
+            data={list}
+            renderItem={({item}) => <Item {...item} onClick={() => toggleTodo(item.id)} />}
+            keyExtractor={(item) => item.id.toString()}
+        />
+    </>)
+}
 const styles = StyleSheet.create({
     text:{
         fontSize:20
@@ -62,4 +49,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
+export default connect(mapStateToProps)(TodoList)

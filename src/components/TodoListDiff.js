@@ -1,13 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
 import { FlatList, Text, View, StyleSheet } from 'react-native';
 
 const mapStateToProps = ({todos}) => ({todos: todos})
-
-const mapDispatchToProps = dispatch => ({
-    toggleTodo: id => dispatch(toggleTodo(id))
-})
 
 const Item = ({ text }) => (
     <View 
@@ -40,4 +35,4 @@ const styles = StyleSheet.create({
         margin:20,
     }
 })
-export default connect(mapStateToProps, mapDispatchToProps)(TodoListDiff)
+export default connect(mapStateToProps)(TodoListDiff)

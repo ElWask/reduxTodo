@@ -1,5 +1,4 @@
 import React from 'react'
-import Filters from './src/components/Filters'
 import AddTodo from './src/components/AddTodo'
 import VisibleTodoList from './src/components/TodoList'
 import VisibleDiffTodoList from './src/components/TodoListDiff'
@@ -11,7 +10,6 @@ const store = createStore(rootReducer)
 
 const App = () => (
     <Provider store={store}>
-        <Filters />
         <VisibleTodoList />
         <VisibleDiffTodoList />
         <AddTodo />
