@@ -2,6 +2,7 @@
   "expo": {
     "name": "ReduxTodo",
     "slug": "ReduxTodo",
+    "sdkVersion":"41.0.0", 
     "platforms": [
       "ios",
       "android",
