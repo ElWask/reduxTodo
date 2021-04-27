@@ -62,9 +62,22 @@ myReducer = (state, action) => {
 ```
 
 ### 4 Provider
-TODO
+Le composant <Provider> va donner acces au Store de Redux au composant imbriqué a l'intérieur.
+```javascript
+const App = () => (
+  <Provider store={store}>
+    <VisibleTodoList />
+    <VisibleDiffTodoList />
+    <AddTodo />
+  </Provider>
+);
+```
 ### 5 Connect
-TODO
+La fonction Connect() va connecter le composant React au Store de Redux
+```javascript
+export default connect(mapStateToProps)(TodoList);
+```
+
 ### 6 MapStateToPros et MapDispatchToPros
 
 Ainsi Redux rend explicite le fait que chaque action déclenche une fonction reducer qui déclenche à sont tour un appel vers le store qui stocke l'état de l'application.
@@ -170,10 +183,12 @@ Dans le paradigme Redux, la gestion d'état est simplifiée en puisque tous les 
   les possiblités de débuggage pas à pas.
 
 ## Installation du projet TODO
-
+Vérifier que vous ayez bien installé React-Native, Expo et Node Js
+Depuis votre terminal:
 ```
-npm install redux
-npm install react-redux
+git clone https://github.com/ElWask/reduxTodo.git
+npm install
+npm start
 ```
 
 ## Références
