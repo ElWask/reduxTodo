@@ -35,5 +35,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
+/*#5 La fonction Connect() va connecter le composant React au Store de Redux */
 export default connect()(AddTodo);

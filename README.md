@@ -182,11 +182,12 @@ Dans le paradigme Redux, la gestion d'état est simplifiée en puisque tous les 
  modification de l'état est forcément traçable vers une action avec un certain type et des paramètres. Ceci permet d'augmenter la maintenabilité et
   les possiblités de débuggage pas à pas.
 
-## Installation du projet TODO
-Vérifier que vous ayez bien installé React-Native, Expo et Node Js
+## Installation du projet
+Vérifier que vous ayez bien installé React Native, Expo et NodeJs
 Depuis votre terminal:
 ```
 git clone https://github.com/ElWask/reduxTodo.git
+cd reduxTodo
 npm install
 npm start
 ```
@@ -198,6 +199,3 @@ Merci à Jack d'avoir commencé ce tutoriel: <https://github.com/jckbrkr/redux-t
 La documentation de Redux: https://redux.js.org/
 
 Exemple Todo List: https://redux.js.org/basics/example
-
-Wikipédia: https://fr.wikipedia.org/wiki/Redux
-

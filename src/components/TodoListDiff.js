@@ -37,4 +37,5 @@ const styles = StyleSheet.create({
     margin: 20,
   },
 });
+/*#5 La fonction Connect() va connecter le composant React au Store de Redux */
 export default connect(mapStateToProps)(TodoListDiff);

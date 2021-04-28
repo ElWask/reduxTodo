@@ -18,7 +18,7 @@ const INIT_STATE = [
   },
 ];
 
-/* ensemble des différents reducers
+/* #3 Reducers, les mises à jour de l'état sont réalisées par des fonctions pures, appelées ***reducers***
  ** le reducers todos va prendre en paramettre initial INIT_STATE
  */
 export default combineReducers({
