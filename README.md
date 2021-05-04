@@ -209,6 +209,15 @@ Dans le paradigme Redux, la gestion d'état est simplifiée en puisque tous les 
 
 ## Installation du projet
 Vérifier que vous ayez bien installé React Native, Expo et NodeJs
+Avec Git, depuis votre terminal:
+```
+git clone https://github.com/ElWask/reduxTodo.git
+cd reduxTodo
+npm install
+npm start
+```
+
+Sans Git, télécharger le zip
 Décompresser le zip fournis et aller sur son chemin depuis votre terminal:
 ```
 cd reduxTodo
