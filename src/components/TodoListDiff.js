@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { FlatList, Text, View, StyleSheet } from "react-native";
 
-const mapStateToProps = ({ todos }) => ({ todos: todos });
+/*#5 donne accès au Store en retournant les données demandées par le composant */
+const mapStateToProps = ({ todos }) => ({ list: todos });
 
 const Item = ({ text }) => (
   <View style={styles.item}>
@@ -12,10 +13,10 @@ const Item = ({ text }) => (
   </View>
 );
 
-const TodoListDiff = ({ todos, toggleTodo }) => (
+const TodoListDiff = ({ list, toggleTodo }) => (
   <FlatList
     style={styles.list}
-    data={todos}
+    data={list}
     renderItem={({ item }) => (
       <Item {...item} onClick={() => toggleTodo(item.id)} />
     )}

@@ -8,6 +8,7 @@ const AddTodo = ({ dispatch }) => {
 
   const addingTodo = () => {
     if (!text.trim()) return;
+    /*#5 permet d'effectuer les actions dans le store */
     dispatch(addTodo(text));
     setText("");
   };
@@ -33,6 +34,8 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    borderRadius:3,
+    backgroundColor:"lightgrey"
   },
 });
 /*#5 La fonction Connect() va connecter le composant React au Store de Redux */
