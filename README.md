@@ -16,7 +16,7 @@ A mesure que les applications web et mobiles deviennent plus complexes, il devie
 - Quel composant gère quel état ?
 - Quels composants partagent quels états ?
 - Comment partager un état entre deux composants « direct » ?
-- Comment partager un état entre deux composants « éloignés »
+- Comment partager un état entre deux composants « éloignés » ?
 - Comment corriger des erreurs lorsqu’un état peut être mis à jour par un ensemble de composants « éloignés » ?
 
 Redux y apporte une solution simple, efficace, transparente et scalable
@@ -72,23 +72,48 @@ const App = () => (
   </Provider>
 );
 ```
-### 5 Connect
+### 5 Connect, mapStateToProps et dispatch
 La fonction Connect() va connecter le composant React au Store de Redux
 ```javascript
 export default connect(mapStateToProps)(TodoList);
 ```
+    
+le mapStateToProps va donner accès au Store en retournant les données demandées par le composant
+```javascript
+const mapStateToProps = ({ todos }) => ({ todoList: todos });
+const TodoList = ({ todoList, dispatch }) => {
+  const [list, setList] = useState(todos);
+  ...
+}
+```
+le connect va nous permettre d'accéder à la fonction dispatch qui va nous permettre d'effectuer les actions dans le store
+```javascript
+import { addTodo } from "../actions";
+const AddTodo = ({ dispatch }) => {
+    const [text, setText] = useState("Useless Text");
 
-### 6 MapStateToPros et MapDispatchToPros
+    const addingTodo = () => {
+        if (!text.trim()) return;
+        dispatch(addTodo(text));
+        setText("");
+    };
+    ...
+}
+```
+
+### 6 Vue générale
 
 Ainsi Redux rend explicite le fait que chaque action déclenche une fonction reducer qui déclenche à sont tour un appel vers le store qui stocke l'état de l'application.
 
 ![Action, reducer, store](<https://i.imgur.com/XN0SVfM.png>)
 
-## Utilisation
+## Mise en œuvre
 
 Imaginons une application de Todo Liste très simple qui permet d'ajouter des tâches et de les cocher quand elles sont terminées. L'affichage des tâches peut être filtrée par leur statut de visibilité.
 
-
+La démo a trois composants principaux qui se partageant le state global : 
+- deux listes distinctes affichant les todo (le but étant de montrer le partage)
+- un formulaire pour la mise à jour
 
 ![Todo list](<https://i.imgur.com/SeqivcX.png>)
 
@@ -132,7 +157,7 @@ Ces actions devront être consommées par des fonctions reducer afin de modifier
 
 Dans ***`reducers/index.js`***, nous pouvons définir les fonctions qui transformeront l'état de l'application pour ajouter ou cocher des todos ou modifier le filtre d'affichage. C'est ici que nous faisons un mapping des actions de l'utilisateur sur des traitements cohérents de l'état de l'application.
 
-Redux ne dit pas comment structurer les fonctions reducer d'une application. Ici, les deux reducers sont combinés à l'aide de la fonction `combineReducers`.
+Dans cet exemple, il n’y a qu’un seul reducer, en général il y a en plusieurs, qui sont combinés à l’aide de la fonction `combineReducers`.
 
 ***`reducers/index.js`***
 
@@ -184,9 +209,8 @@ Dans le paradigme Redux, la gestion d'état est simplifiée en puisque tous les 
 
 ## Installation du projet
 Vérifier que vous ayez bien installé React Native, Expo et NodeJs
-Depuis votre terminal:
+Décompresser le zip fournis et aller sur son chemin depuis votre terminal:
 ```
-git clone https://github.com/ElWask/reduxTodo.git
 cd reduxTodo
 npm install
 npm start
