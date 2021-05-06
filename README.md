@@ -62,7 +62,7 @@ myReducer = (state, action) => {
 ```
 
 ### 4 Provider
-Le composant <Provider> va donner acces au Store de Redux au composant imbriqué a l'intérieur.
+Le composant <Provider> va donner acces au Store de Redux au composant imbriqué à l'intérieur.
 ```javascript
 const App = () => (
   <Provider store={store}>
@@ -232,3 +232,5 @@ Merci à Jack d'avoir commencé ce tutoriel: <https://github.com/jckbrkr/redux-t
 La documentation de Redux: https://redux.js.org/
 
 Exemple Todo List: https://redux.js.org/basics/example
+
+Description du flow de redux: https://slides.com/jenyaterpil/redux-from-twitter-hype-to-production#/9
